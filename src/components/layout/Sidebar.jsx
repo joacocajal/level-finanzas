@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom'
-import { LayoutDashboard, ArrowLeftRight, Package, Calculator, Settings, Menu, X } from 'lucide-react'
+import { LayoutDashboard, ArrowLeftRight, Package, Calculator, Settings, Menu, X, LogOut } from 'lucide-react'
 import { useState } from 'react'
 
 const LINKS = [
@@ -10,7 +10,7 @@ const LINKS = [
   { to: '/config',        label: 'Configuración', Icon: Settings },
 ]
 
-export default function Sidebar() {
+export default function Sidebar({ onLogout }) {
   const [open, setOpen] = useState(false)
 
   const navContent = (
@@ -48,7 +48,14 @@ export default function Sidebar() {
       </nav>
 
       {/* Footer */}
-      <div className="px-6 py-4 border-t border-dark-border">
+      <div className="px-6 py-4 border-t border-dark-border space-y-3">
+        <button
+          onClick={onLogout}
+          className="flex items-center gap-3 w-full px-4 py-2.5 rounded-xl text-sm font-medium text-dark-text hover:text-white hover:bg-dark-surface transition-all"
+        >
+          <LogOut size={17} />
+          <span>Cerrar sesión</span>
+        </button>
         <p className="text-dark-muted text-xs">Your Rules — Drop 1</p>
       </div>
     </>
