@@ -8,7 +8,7 @@ export default function Layout({ children, onLogout }) {
       <main className="flex-1 flex flex-col min-w-0">
         {/* Logo mobile — centrado arriba del contenido */}
         <div className="lg:hidden flex flex-col items-center pt-12 pb-4">
-          <img src="/logorojosf.png" alt="LEVEL" className="h-12 w-auto object-contain" />
+          <img src="/logorojosf.png" alt="LEVEL" className="h-20 w-auto object-contain" />
           <p className="text-dark-text text-[9px] tracking-[0.5em] uppercase mt-1.5">Finanzas</p>
         </div>
 
