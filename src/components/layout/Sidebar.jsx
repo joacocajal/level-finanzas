@@ -19,14 +19,9 @@ export default function Sidebar({ onLogout }) {
   const navContent = (
     <>
       {/* Logo */}
-      <div className="px-5 py-5 border-b border-white/5">
-        <div className="flex items-center gap-3">
-          <img src="/logorojosf.png" alt="LEVEL" className="h-8 w-auto object-contain shrink-0" />
-          <div>
-            <p className="font-bebas text-2xl leading-none tracking-[0.15em] text-white">LEVEL</p>
-            <p className="text-dark-text text-[10px] tracking-[0.3em] uppercase mt-0.5">Finanzas</p>
-          </div>
-        </div>
+      <div className="px-5 py-5 border-b border-white/5 flex flex-col items-center gap-1.5">
+        <img src="/logorojosf.png" alt="LEVEL" className="w-32 object-contain" />
+        <p className="text-dark-text text-[9px] tracking-[0.45em] uppercase">Finanzas</p>
       </div>
 
       {/* Nav */}
@@ -89,10 +84,7 @@ export default function Sidebar({ onLogout }) {
 
       {/* Mobile header */}
       <div className="lg:hidden fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-4 py-3 glass-sidebar border-b border-white/5">
-        <div className="flex items-center gap-2">
-          <img src="/logorojosf.png" alt="LEVEL" className="h-6 w-auto object-contain" />
-          <span className="font-bebas text-2xl tracking-[0.15em] text-white">LEVEL</span>
-        </div>
+        <img src="/logorojosf.png" alt="LEVEL" className="h-7 w-auto object-contain" />
         <button
           onClick={() => setOpen(v => !v)}
           className="p-2 text-dark-text hover:text-white transition-colors"
