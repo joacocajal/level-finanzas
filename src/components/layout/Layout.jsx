@@ -7,9 +7,8 @@ export default function Layout({ children, onLogout }) {
       <Sidebar onLogout={onLogout} />
       <main className="flex-1 flex flex-col min-w-0">
         {/* Logo mobile — centrado arriba del contenido */}
-        <div className="lg:hidden flex flex-col items-center pt-12 pb-4">
-          <img src="/logorojosf.png" alt="LEVEL" className="h-20 w-auto object-contain" />
-          <p className="text-dark-text text-[9px] tracking-[0.5em] uppercase mt-1.5">Finanzas</p>
+        <div className="lg:hidden flex items-center justify-center pt-10 pb-4">
+          <img src="/logorojosf.png" alt="LEVEL" className="h-28 w-auto object-contain" />
         </div>
 
         {!isSupabaseConfigured && (
