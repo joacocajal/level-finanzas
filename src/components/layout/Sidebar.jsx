@@ -82,16 +82,13 @@ export default function Sidebar({ onLogout }) {
         {navContent}
       </aside>
 
-      {/* Mobile header */}
-      <div className="lg:hidden fixed top-0 left-0 right-0 z-40 flex items-center justify-center px-4 py-2 glass-sidebar border-b border-white/5 relative">
-        <img src="/logorojosf.png" alt="LEVEL" className="h-9 w-auto object-contain" />
-        <button
-          onClick={() => setOpen(v => !v)}
-          className="absolute right-4 p-2 text-dark-text hover:text-white transition-colors"
-        >
-          {open ? <X size={20} /> : <Menu size={20} />}
-        </button>
-      </div>
+      {/* Mobile hamburger — botón flotante */}
+      <button
+        className="lg:hidden fixed top-4 left-4 z-[60] p-2 text-dark-text hover:text-white transition-colors"
+        onClick={() => setOpen(v => !v)}
+      >
+        {open ? <X size={22} /> : <Menu size={22} />}
+      </button>
 
       {/* Mobile drawer */}
       {open && (
