@@ -37,7 +37,7 @@ function MetricCard({ label, value, sub, Icon, color = 'text-white', index = 0 }
         </span>
       </div>
       <div>
-        <p className={`font-bebas tracking-wider metric-number ${color}`} style={{ fontSize: '2.6rem', lineHeight: 1 }}>{value}</p>
+        <p className={`font-bebas tracking-wider metric-number ${color}`} style={{ fontSize: '3rem', lineHeight: 1, fontWeight: 800 }}>{value}</p>
         {sub && <p className="text-dark-text text-xs mt-0.5 tracking-wide">{sub}</p>}
       </div>
     </div>
