@@ -21,9 +21,7 @@ export default function Sidebar({ onLogout }) {
       {/* Logo */}
       <div className="px-5 py-5 border-b border-white/5">
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 bg-brand rounded-lg flex items-center justify-center shrink-0 shadow-[0_0_12px_rgba(230,57,70,0.4)]">
-            <span className="font-bebas text-white text-xl leading-none">L</span>
-          </div>
+          <img src="/logorojosf.png" alt="LEVEL" className="h-8 w-auto object-contain shrink-0" />
           <div>
             <p className="font-bebas text-2xl leading-none tracking-[0.15em] text-white">LEVEL</p>
             <p className="text-dark-text text-[10px] tracking-[0.3em] uppercase mt-0.5">Finanzas</p>
@@ -92,9 +90,7 @@ export default function Sidebar({ onLogout }) {
       {/* Mobile header */}
       <div className="lg:hidden fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-4 py-3 glass-sidebar border-b border-white/5">
         <div className="flex items-center gap-2">
-          <div className="w-6 h-6 bg-brand rounded-md flex items-center justify-center shadow-[0_0_8px_rgba(230,57,70,0.5)]">
-            <span className="font-bebas text-white text-sm leading-none">L</span>
-          </div>
+          <img src="/logorojosf.png" alt="LEVEL" className="h-6 w-auto object-contain" />
           <span className="font-bebas text-2xl tracking-[0.15em] text-white">LEVEL</span>
         </div>
         <button
