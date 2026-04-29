@@ -1,14 +1,17 @@
 import { NavLink } from 'react-router-dom'
-import { LayoutDashboard, ArrowLeftRight, Package, Calculator, Settings, Menu, X, LogOut } from 'lucide-react'
+import { LayoutDashboard, ArrowLeftRight, Package, Calculator, Settings, Menu, X, LogOut, ExternalLink } from 'lucide-react'
 import { useState } from 'react'
 
 const LINKS = [
   { to: '/',              label: 'Dashboard',     Icon: LayoutDashboard },
-  { to: '/transacciones', label: 'Transacciones', Icon: ArrowLeftRight },
-  { to: '/inventario',    label: 'Inventario',    Icon: Package },
-  { to: '/simulador',     label: 'Simulador',     Icon: Calculator },
-  { to: '/config',        label: 'Configuración', Icon: Settings },
+  { to: '/transacciones', label: 'Transacciones', Icon: ArrowLeftRight  },
+  { to: '/inventario',    label: 'Inventario',    Icon: Package         },
+  { to: '/simulador',     label: 'Simulador',     Icon: Calculator      },
+  { to: '/config',        label: 'Configuración', Icon: Settings        },
 ]
+
+// TODO: replace with your real landing URL
+const LANDING_URL = 'https://levelstudios.site'
 
 export default function Sidebar({ onLogout }) {
   const [open, setOpen] = useState(false)
@@ -16,17 +19,20 @@ export default function Sidebar({ onLogout }) {
   const navContent = (
     <>
       {/* Logo */}
-      <div className="px-6 py-6 border-b border-dark-border">
-        <span className="font-bebas text-4xl tracking-[0.2em] text-white">
-          LEVEL
-        </span>
-        <p className="text-dark-text text-xs font-barlow mt-0.5 tracking-widest uppercase">
-          Finanzas
-        </p>
+      <div className="px-5 py-5 border-b border-white/5">
+        <div className="flex items-center gap-3">
+          <div className="w-8 h-8 bg-brand rounded-lg flex items-center justify-center shrink-0 shadow-[0_0_12px_rgba(230,57,70,0.4)]">
+            <span className="font-bebas text-white text-xl leading-none">L</span>
+          </div>
+          <div>
+            <p className="font-bebas text-2xl leading-none tracking-[0.15em] text-white">LEVEL</p>
+            <p className="text-dark-text text-[10px] tracking-[0.3em] uppercase mt-0.5">Finanzas</p>
+          </div>
+        </div>
       </div>
 
       {/* Nav */}
-      <nav className="flex-1 px-3 py-4 space-y-1">
+      <nav className="flex-1 px-3 py-4 space-y-0.5">
         {LINKS.map(({ to, label, Icon }) => (
           <NavLink
             key={to}
@@ -34,29 +40,44 @@ export default function Sidebar({ onLogout }) {
             end={to === '/'}
             onClick={() => setOpen(false)}
             className={({ isActive }) =>
-              `flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 group ${
+              `flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium tracking-wide transition-all duration-150 ${
                 isActive
-                  ? 'bg-brand/10 text-brand border border-brand/20'
-                  : 'text-dark-text hover:text-white hover:bg-dark-surface'
+                  ? 'bg-brand/10 text-brand border border-brand/25 shadow-[0_0_14px_rgba(230,57,70,0.1)]'
+                  : 'text-dark-text hover:text-white hover:bg-dark-surface border border-transparent'
               }`
             }
           >
-            <Icon size={17} className="shrink-0" />
+            <Icon size={16} className="shrink-0" />
             <span>{label}</span>
           </NavLink>
         ))}
       </nav>
 
       {/* Footer */}
-      <div className="px-6 py-4 border-t border-dark-border space-y-3">
+      <div className="px-3 py-4 border-t border-white/5 space-y-2">
+        <a
+          href={LANDING_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-3 w-full px-3.5 py-2.5 rounded-xl text-sm font-medium
+            text-white border border-brand/40 hover:bg-brand hover:border-brand
+            transition-all duration-200 tracking-wide"
+        >
+          <ExternalLink size={15} className="shrink-0" />
+          <span>Volver a la Web</span>
+        </a>
         <button
           onClick={onLogout}
-          className="flex items-center gap-3 w-full px-4 py-2.5 rounded-xl text-sm font-medium text-dark-text hover:text-white hover:bg-dark-surface transition-all"
+          className="flex items-center gap-3 w-full px-3.5 py-2.5 rounded-xl text-sm font-medium
+            text-dark-text hover:text-white hover:bg-dark-surface border border-transparent
+            transition-all duration-150 tracking-wide"
         >
-          <LogOut size={17} />
+          <LogOut size={15} />
           <span>Cerrar sesión</span>
         </button>
-        <p className="text-dark-muted text-xs">Your Rules — Drop 1</p>
+        <p className="text-dark-muted text-[10px] px-3.5 tracking-[0.25em] uppercase pt-1">
+          Your Rules · Drop 1
+        </p>
       </div>
     </>
   )
@@ -64,13 +85,18 @@ export default function Sidebar({ onLogout }) {
   return (
     <>
       {/* Desktop sidebar */}
-      <aside className="hidden lg:flex flex-col w-56 shrink-0 bg-dark-card border-r border-dark-border min-h-screen sticky top-0 h-screen">
+      <aside className="hidden lg:flex flex-col w-56 shrink-0 glass-sidebar border-r border-white/5 min-h-screen sticky top-0 h-screen">
         {navContent}
       </aside>
 
       {/* Mobile header */}
-      <div className="lg:hidden fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-4 py-3 bg-dark-card border-b border-dark-border">
-        <span className="font-bebas text-2xl tracking-[0.2em] text-white">LEVEL</span>
+      <div className="lg:hidden fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-4 py-3 glass-sidebar border-b border-white/5">
+        <div className="flex items-center gap-2">
+          <div className="w-6 h-6 bg-brand rounded-md flex items-center justify-center shadow-[0_0_8px_rgba(230,57,70,0.5)]">
+            <span className="font-bebas text-white text-sm leading-none">L</span>
+          </div>
+          <span className="font-bebas text-2xl tracking-[0.15em] text-white">LEVEL</span>
+        </div>
         <button
           onClick={() => setOpen(v => !v)}
           className="p-2 text-dark-text hover:text-white transition-colors"
@@ -83,10 +109,10 @@ export default function Sidebar({ onLogout }) {
       {open && (
         <div className="lg:hidden fixed inset-0 z-50 flex">
           <div
-            className="absolute inset-0 bg-black/70"
+            className="absolute inset-0 bg-black/85 backdrop-blur-sm"
             onClick={() => setOpen(false)}
           />
-          <aside className="relative z-10 flex flex-col w-64 bg-dark-card border-r border-dark-border h-full animate-in">
+          <aside className="relative z-10 flex flex-col w-64 glass-sidebar border-r border-white/5 h-full animate-in">
             {navContent}
           </aside>
         </div>

@@ -7,53 +7,91 @@
 }
 
 body {
-  background-color: #0a0a0a;
+  background-color: #000000;
   color: #ffffff;
-  font-family: 'Barlow', sans-serif;
+  font-family: 'Inter', 'Barlow', sans-serif;
   margin: 0;
   padding: 0;
 }
 
-/* Scrollbar personalizado */
-::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
-}
-::-webkit-scrollbar-track {
-  background: #141414;
-}
-::-webkit-scrollbar-thumb {
-  background: #404040;
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #e63946;
+/* ── Scrollbar ─────────────────────────────────────────────────────────────── */
+::-webkit-scrollbar       { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #e63946; }
+
+/* ── Glassmorphism ─────────────────────────────────────────────────────────── */
+.glass {
+  background: rgba(15, 15, 15, 0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* Recharts */
-.recharts-tooltip-wrapper {
-  outline: none !important;
-}
-.recharts-cartesian-axis-tick-value {
-  fill: #a3a3a3;
-  font-family: 'Barlow', sans-serif;
-  font-size: 12px;
-}
-.recharts-legend-item-text {
-  color: #a3a3a3 !important;
-  font-family: 'Barlow', sans-serif !important;
+.glass-sidebar {
+  background: rgba(6, 6, 6, 0.9);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }
 
-/* Animaciones */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(6px); }
+/* ── Card glow ─────────────────────────────────────────────────────────────── */
+.card-glow {
+  box-shadow: 0 0 20px rgba(230, 57, 70, 0.07), 0 1px 0 rgba(255, 255, 255, 0.02) inset;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.card-glow:hover {
+  box-shadow: 0 0 35px rgba(230, 57, 70, 0.14), 0 1px 0 rgba(255, 255, 255, 0.03) inset;
+  border-color: rgba(230, 57, 70, 0.18) !important;
+}
+
+/* ── Metric number hover glow ──────────────────────────────────────────────── */
+.metric-number {
+  transition: filter 0.25s ease, text-shadow 0.25s ease;
+  cursor: default;
+  display: inline-block;
+}
+.metric-number:hover {
+  filter: brightness(1.35);
+  text-shadow: 0 0 20px currentColor;
+}
+
+/* ── Animations ────────────────────────────────────────────────────────────── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(18px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+
 .animate-in {
-  animation: fadeIn 0.2s ease-out;
+  animation: fadeInUp 0.35s ease-out;
 }
 
-/* Input base */
+.slide-up {
+  opacity: 0;
+  animation: fadeInUp 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ── Progress bar ──────────────────────────────────────────────────────────── */
+@keyframes progressFill {
+  from { width: 0%; }
+}
+.progress-bar {
+  animation: progressFill 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ── Recharts overrides ────────────────────────────────────────────────────── */
+.recharts-tooltip-wrapper { outline: none !important; }
+.recharts-cartesian-axis-tick-value {
+  fill: #505050;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+}
+.recharts-legend-item-text {
+  color: #707070 !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+/* ── Input ─────────────────────────────────────────────────────────────────── */
 input[type="date"]::-webkit-calendar-picker-indicator {
-  filter: invert(0.7);
+  filter: invert(0.5);
 }
