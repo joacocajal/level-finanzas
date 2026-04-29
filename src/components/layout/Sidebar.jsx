@@ -20,7 +20,7 @@ export default function Sidebar({ onLogout }) {
     <>
       {/* Logo */}
       <div className="py-6 border-b border-white/5 flex flex-col items-center justify-center gap-2 w-full">
-        <img src="/logorojosf.png" alt="LEVEL" className="w-36 object-contain" />
+        <img src="/logorojosf.png" alt="LEVEL" className="w-44 object-contain" />
         <p className="text-dark-text text-[9px] tracking-[0.5em] uppercase text-center">Finanzas</p>
       </div>
 
@@ -83,11 +83,11 @@ export default function Sidebar({ onLogout }) {
       </aside>
 
       {/* Mobile header */}
-      <div className="lg:hidden fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-4 py-3 glass-sidebar border-b border-white/5">
-        <img src="/logorojosf.png" alt="LEVEL" className="h-7 w-auto object-contain" />
+      <div className="lg:hidden fixed top-0 left-0 right-0 z-40 flex items-center justify-center px-4 py-2 glass-sidebar border-b border-white/5 relative">
+        <img src="/logorojosf.png" alt="LEVEL" className="h-9 w-auto object-contain" />
         <button
           onClick={() => setOpen(v => !v)}
-          className="p-2 text-dark-text hover:text-white transition-colors"
+          className="absolute right-4 p-2 text-dark-text hover:text-white transition-colors"
         >
           {open ? <X size={20} /> : <Menu size={20} />}
         </button>
